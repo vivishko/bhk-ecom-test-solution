@@ -8,12 +8,12 @@
 
 Полное описание [в папке docs в файле task](/docs/tasks_description.md#задача-1-счетчик-кликов)
 
-### Tech stack
+## Tech stack
 
 Backend: Go </br>
 Databases and other tools: Postgres
 
-### Решение
+## Решение
 
 логику мыслей описывала в [файле task1_thoughts.md в папке docs](/docs/task1_thoughts.md)
 
@@ -26,20 +26,20 @@ gin</br>
 docker+docker compose</br>
 graphana+prometheus+k6</br>
 
-### Инструкция по использованию
+## Инструкция по использованию
 
 1. склонировать репо
 
 По ssh
 
 ```bash
-$ git clone git@github.com:vivishko/no-name-company-test-solution.git
+$ git clone git@github.com:vivishko/bhk-ecom-test-solution.git
 ```
 
 По https
 
 ```bash
-$ git clone https://github.com/vivishko/no-name-company-test-solution.git
+$ git clone https://github.com/vivishko/bhk-ecom-test-solution.git
 ```
 
 2. Настроить окружение: создать файл .env в корне проекта, скопировать туда содержание .example.env и изменить значения переменных на существующие (или оставить как есть)</br>
@@ -80,4 +80,4 @@ $ k6 run load-test.js
   **thresholds** описывают критерии, при которых тест считается пройденным: в данном случае это [95% запросов должны выполняться за <200ms] и [не более 1% запросов с ошибкой] </br>
   **sleep(0.1)** задаёт паузу между запросами для виртуального пользователя (этим мы увеличиваем максимальный проверяемый rps с 500 до 5000)
 
-### TODO
+## TODO
