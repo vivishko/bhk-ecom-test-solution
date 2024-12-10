@@ -6,9 +6,9 @@
 
 Нужно сделать АПИ с двумя методами:
 
-1. /counter/<bannerID> (GET)
+1. /counter/:bannerID (GET)
    Должен посчитать +1 клик по баннеру с заданным ИД
-2. /stats/<bannerID> (POST)
+2. /stats/:bannerID (POST)
    Должен выдать статистику показов по баннеру за указанный промежуток времени (tsFrom, tsTo)
 
 Язык: golang </br>
