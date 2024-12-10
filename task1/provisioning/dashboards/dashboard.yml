@@ -1,0 +1,9 @@
+apiVersion: 1
+
+providers:
+  - name: "Producer Service Dashboard"
+    folder: "Metrics"
+    type: file
+    options:
+      path: /etc/grafana/provisioning/dashboards
+      overwrite: true

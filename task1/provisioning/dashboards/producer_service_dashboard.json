@@ -1,0 +1,77 @@
+{
+  "annotations": {
+    "list": []
+  },
+  "panels": [
+    {
+      "type": "graph",
+      "title": "Average Latency for /counter/:bannerID",
+      "targets": [
+        {
+          "expr": "rate(http_request_duration_seconds_sum{path=\"/counter/:bannerID\"}[1m]) / rate(http_request_duration_seconds_count{path=\"/counter/:bannerID\"}[1m])",
+          "format": "time_series",
+          "intervalFactor": 1,
+          "legendFormat": "Average latency (s)",
+          "refId": "A"
+        }
+      ],
+      "gridPos": {
+        "x": 0,
+        "y": 16,
+        "w": 12,
+        "h": 8
+      },
+      "datasource": "Prometheus",
+      "lines": true,
+      "fill": 1,
+      "linewidth": 1,
+      "points": false
+    },
+    {
+      "type": "graph",
+      "title": "RPS for /counter/:bannerID",
+      "targets": [
+        {
+          "expr": "rate(http_requests_total{path=\"/counter/:bannerID\"}[1m])",
+          "legendFormat": "RPS",
+          "refId": "B"
+        }
+      ],
+      "gridPos": {
+        "x": 0,
+        "y": 16,
+        "w": 12,
+        "h": 8
+      },
+      "datasource": "Prometheus"
+    },
+    {
+      "type": "graph",
+      "title": "95th percentile Latency",
+      "targets": [
+        {
+          "expr": "histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket{path=\"/counter/:bannerID\"}[1m])) by (le))",
+          "legendFormat": "p95 latency (s)",
+          "refId": "C"
+        }
+      ],
+      "gridPos": {
+        "x": 0,
+        "y": 16,
+        "w": 12,
+        "h": 8
+      },
+      "datasource": "Prometheus"
+    }
+  ],
+  "title": "Producer Service Dashboard",
+  "time": {
+    "from": "now-15m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "schemaVersion": 27,
+  "version": 1,
+  "refresh": "5s"
+}
